@@ -1,0 +1,46 @@
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+</head>
+<body ng-app="myApp">
+
+<!-- Directives -->
+<div ng-init="firstname='john';lastname='Baskar'">
+<input type="text" ng-model="name"/>
+<p ng-bind="name"/>
+
+<!-- Expression -->
+<p>Name is <span ng-bind="firstname"></span></p>
+<p>{{5+5}}</p>
+<p>{{firstname+" "+lastname}}</p>
+</div>
+
+<div ng-init="person={firstName:'JohnK',lastName:'DoeK'}">
+<p>The name is {{ person.lastName }}</p>
+</div>
+
+<div ng-app="" ng-init="points=[1,15,19,2,40]">
+<p>The third result is {{ points[2] }}</p>
+</div>
+
+<!-- Controller -->
+<div ng-controller="myCtrl">
+FirstName: <input type="text" ng-model="firstname1"><br>
+LastName: <input type="text" ng-model="lastname1"><br>
+<br>
+FullName: {{firstname1+" "+lastname1}}
+</div>
+<script>
+var app = angular.module('myApp', []);
+app.controller('myCtrl', function($scope){
+	$scope.firstname1 = "John";
+	$scope.lastname1 = "Doe";
+});
+</script>
+
+<div ng-controller="myCtrl1">
+{{firstName2+" "+lastName2}}
+</div>
+<script src="myCtrl1.js"></script>
+</body>
+</html>
